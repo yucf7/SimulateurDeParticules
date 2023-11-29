@@ -29,7 +29,6 @@ public class ParticuleB extends Particule {
 	
 
 	public void resetVitesse() {
-		this.prochaineVitesse = 30f;
 	}
 	
 
@@ -105,5 +104,8 @@ public class ParticuleB extends Particule {
 
 	}
 
+	public void setProchaineVitesse(double prochaineVitesse){
+		this.prochaineVitesse = prochaineVitesse;
+	}
 
 }

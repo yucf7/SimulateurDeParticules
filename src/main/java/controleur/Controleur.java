@@ -2,13 +2,15 @@ package controleur;
 
 import java.util.List;
 
+import observers.Observable;
+import observers.Observateur;
 import particules.Champ;
 import particules.ChampDeParticules;
 import particules.Particule;
 import simulation.Simulateur;
 import visualisation.VueApplication;
 
-public class Controleur {
+public class Controleur implements Observateur {
 
 
 	
@@ -54,7 +56,7 @@ public class Controleur {
 		champParticules = new ChampDeParticules(largeur, hauteur, nb, type);
 		this.sim = new Simulateur(30,this);
 		this.application = new VueApplication(lib,this);
-				
+		champParticules.ajouterObservateur(this);
 	}
 	
 	/**
@@ -138,6 +140,9 @@ public class Controleur {
 		this.application.repaint();
 	}
 
-
+	@Override
+	public void update(Observable o, Object arg) {
+		this.majVue();
+	}
 
 }

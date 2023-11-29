@@ -105,8 +105,10 @@ public class ParticuleA extends Particule {
 
 	@Override
 	public void resetVitesse() {
-		this.prochaineVitesse = 10f;
-		
+	}
+
+	public void setProchaineVitesse(double prochaineVitesse){
+		this.prochaineVitesse = prochaineVitesse;
 	}
 
 

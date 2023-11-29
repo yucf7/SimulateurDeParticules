@@ -11,8 +11,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import controleur.Controleur;
+import observers.Observable;
+import observers.Observateur;
 
-public class VueApplication extends JFrame {
+public class VueApplication extends JFrame implements Observateur {
 
 	
 	/**
@@ -49,6 +51,7 @@ public class VueApplication extends JFrame {
 					    controleur.ajouterPopulation(Integer.parseInt(nombre), typesParticules[b]);
 				}});
 			m.add(mi);
+			c.getchampParticules().ajouterObservateur(this);
 		}
 		
 		mb.add(m);
@@ -66,7 +69,10 @@ public class VueApplication extends JFrame {
 		this.affichageSimulation.updateParticulesVisibles();
 		
 	}
-	
-	
+
+	@Override
+	public void update(Observable o, Object arg) {
+		this.majParticulesADessiner();
+	}
 
 }

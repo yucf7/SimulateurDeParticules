@@ -3,7 +3,7 @@ package particules;
 import java.util.List;
 
 import controleur.Controleur;
-
+import observers.Observateur;
 
 
 public interface Champ {
@@ -23,5 +23,8 @@ public interface Champ {
 	public void naissance(int i, double x, double y);
 	
 	public void updatePopulation();
+
+	public void ajouterObservateur(Observateur o);
+	public void notifierObservateurs();
 
 }

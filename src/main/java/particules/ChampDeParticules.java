@@ -7,10 +7,13 @@ import java.util.Random;
 
 import controleur.Controleur;
 import factories.ParticuleFactory;
+import observers.Observable;
+import observers.Observateur;
 
-public class ChampDeParticules implements Champ {
+public class ChampDeParticules implements Champ, Observable {
 
 	private static ChampDeParticules instance;
+	private List<Observateur> observateurs = new ArrayList<>();
 
 
 	private int largeur;
@@ -158,6 +161,23 @@ public class ChampDeParticules implements Champ {
 	public void updatePopulation() {
 		this.population.addAll(this.nouvelleGeneration);
 		this.nouvelleGeneration = new ArrayList<Particule>();
+	}
+
+	@Override
+	public void ajouterObservateur(Observateur observateur) {
+		observateurs.add(observateur);
+	}
+
+	@Override
+	public void supprimerObservateur(Observateur observateur) {
+		observateurs.remove(observateur);
+	}
+
+	@Override
+	public void notifierObservateurs() {
+		for (Observateur observateur : observateurs) {
+			observateur.update(this, null);
+		}
 	}
 }
 
