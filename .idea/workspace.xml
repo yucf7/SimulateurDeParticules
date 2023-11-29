@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42617386-06e7-4861-8624-2e723c6eaedd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/Controleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/Champ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/Champ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/ChampDeParticules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ChampDeParticules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/particules/Particule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/Particule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/particules/ParticuleA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ParticuleA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/particules/ParticuleB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ParticuleB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visualisation/VueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visualisation/VueApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controleur/Controleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controleur/Controleur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/particules/Champ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/Champ.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/particules/ChampDeParticules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/ChampDeParticules.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueApplication$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/ParticuleA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/ParticuleB.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

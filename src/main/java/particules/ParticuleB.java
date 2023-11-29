@@ -19,12 +19,12 @@ public class ParticuleB extends Particule {
 		vitesseCourante = 30f;
 		this.prochaineDirection = dC;
 		this.prochaineVitesse = 30f;
-		this.phaseDeLaParticule = Phase.JEUNE;
-		this.etatDeLaParticule = Etat.NORMAL;
 		this.passageACTIVE = 100;
 		this.passageFINDEVIE = 300;
 		this.passageMORT = 700;
-		
+		this.etatCourant = etatNormal;
+
+
 	}
 	
 
@@ -54,11 +54,13 @@ public class ParticuleB extends Particule {
 				else 
 					p.prochaineDirection = p.directionCourante + Math.PI;
 				Particule.collisionsSimplesTraitees.add(p);
-				if (p.etatDeLaParticule == Etat.EXCITE && this.etatDeLaParticule == Etat.EXCITE && p.phaseDeLaParticule == Phase.ACTIVE && this.phaseDeLaParticule == Phase.ACTIVE) {
+				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive) {
 					if (p.getClass() == ParticuleB.class) {
 						this.champ.naissance(1, this.x, this.y);
-						p.phaseDeLaParticule = Phase.MORTE;
-						this.phaseDeLaParticule = Phase.MORTE;
+						p.phaseCourante = phaseMorte;
+						this.phaseCourante = phaseMorte;
+						phaseCourante.gestionPhase(this);
+						phaseCourante.gestionPhase(p);
 						this.champ.getParticules().remove(this);
 						this.champ.getParticules().remove(p);
 						
@@ -72,22 +74,26 @@ public class ParticuleB extends Particule {
 					}
 				}
 				else  {
-					if (this.etatDeLaParticule == Etat.NORMAL) {
-						this.etatDeLaParticule = Etat.EXCITE;
+					if (this.etatCourant == etatNormal) {
+						this.etatCourant = etatExcite;
+						etatCourant.gestionEtat(this);
 						this.augmentationVitesse() ;
 						
 					}
 					else {
-						this.etatDeLaParticule = Etat.NORMAL;
+						this.etatCourant = etatNormal;
+						etatCourant.gestionEtat(this);
 						this.resetVitesse();
 					}
 					
-					if (p.etatDeLaParticule == Etat.NORMAL) {
-						p.etatDeLaParticule = Etat.EXCITE;
+					if (p.etatCourant == etatNormal) {
+						this.etatCourant = etatExcite;
+						etatCourant.gestionEtat(this);
 						p.augmentationVitesse() ;
 					} 
 					else {
-						p.etatDeLaParticule = Etat.NORMAL;
+						this.etatCourant = etatNormal;
+						etatCourant.gestionEtat(this);
 						p.resetVitesse();
 					}
 					

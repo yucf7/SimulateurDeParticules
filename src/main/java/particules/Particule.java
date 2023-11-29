@@ -1,13 +1,79 @@
 package particules;
 
+import particules.etat.etatParticule.EtatExcite;
+import particules.etat.etatParticule.EtatNormal;
+import particules.etat.etatParticule.EtatParticule;
+import particules.etat.phaseParticule.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public abstract class Particule  {
-	
-	
-	
+
+	protected EtatParticule etatNormal = new EtatNormal();
+	protected EtatParticule etatExcite = new EtatExcite();
+	protected EtatParticule etatCourant;
+
+	protected PhaseParticule phaseActive = new PhaseActive();
+	protected PhaseParticule phaseMorte = new PhaseMorte();
+	protected PhaseParticule phaseFINDEVIE = new PhaseFINDEVIE();
+	protected PhaseParticule phaseJeune = new PhaseJeune();
+	protected PhaseParticule phaseCourante;
+
+
+	public Particule() {
+		etatCourant = etatNormal;
+		phaseCourante = phaseJeune;
+	}
+
+	public void gestionEtat() {
+		etatCourant.gestionEtat(this);
+	}
+
+	public void gestionPhase(){
+		phaseCourante.gestionPhase(this);
+	}
+
+	public void setPhaseActive() {
+		phaseCourante = phaseActive;
+	}
+
+	public void setPhaseJeune() {
+		phaseCourante = phaseJeune;
+	}
+
+	public void setPhaseMorte() {
+		phaseCourante = phaseMorte;
+	}
+
+	public void setPhaseFINDEVIE() {
+		phaseCourante = phaseFINDEVIE;
+	}
+
+	public void setEtatNormal() {
+		etatCourant = etatNormal;
+	}
+
+	public void setEtatExcite() {
+		etatCourant = etatExcite;
+	}
+
+	public Etat getEtatDeLaParticule() {
+		return etatDeLaParticule;
+	}
+
+	public void setEtatDeLaParticule(Etat etat) {
+		this.etatDeLaParticule = etat;
+	}
+
+	public Phase getPhaseDeLaParticule() {
+		return phaseDeLaParticule;
+	}
+
+	public void setPhaseDeLaParticule(Phase phase) {
+		this.phaseDeLaParticule = phase;
+	}
 	/**
 	 * cette variable stocke doit etre reinitialiser a chaque tour de simulation. Elle stocke 
 	 * les collisions simples traitees. Si a est en collision simple avec b (et reciproquement), a est stockee dans 
@@ -32,7 +98,7 @@ public abstract class Particule  {
 	 *
 	 */
 	
-	protected enum Etat {NORMAL, EXCITE};
+	public enum Etat {NORMAL, EXCITE};
 
 	/**
 	 * Permet de definir dans quelle phase de vie se situe une particule
@@ -47,7 +113,7 @@ public abstract class Particule  {
 	 * @author YohanBoichut
 	 *
 	 */
-	protected enum Phase {JEUNE,ACTIVE,FINDEVIE,MORTE};
+	public enum Phase {JEUNE,ACTIVE,FINDEVIE,MORTE};
 
 	
 	
