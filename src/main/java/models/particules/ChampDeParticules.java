@@ -100,6 +100,7 @@ public class ChampDeParticules implements Champ, Observable {
 		}
 		case 2: {
 			result = factory.createParticuleC(this, x, y, direction);
+			break;
 		}
 		}
 		return result;
