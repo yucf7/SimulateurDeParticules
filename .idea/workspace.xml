@@ -5,12 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42617386-06e7-4861-8624-2e723c6eaedd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/Particule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/Particule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/ParticuleA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ParticuleA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/ParticuleB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ParticuleB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/ParticuleA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/ParticuleB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/particules/Particule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/particules/Particule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/visualisation/VueParticule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visualisation/VueParticule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controleur/Controleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controleur/Controleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/factories/ParticuleFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/factories/ParticuleFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Champ.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/ChampDeParticules.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Particule$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Particule$Etat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Particule$Phase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Particule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/etatParticule/EtatExcite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/etatParticule/EtatNormal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/etatParticule/EtatParticule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseActive.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseFINDEVIE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseJeune.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseMorte.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseParticule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/simulation/Simulateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simulation/Simulateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/DistancesEtDirections.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/DistancesEtDirections.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueApplication$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueChampDeParticules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueChampDeParticules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueParticule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueParticule.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +67,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "add-state-dp",
-    "last_opened_file_path": "D:/Stud/INSA/S9/DP/projet/mini-projet/SimulateurDeParticules",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/samir/Downloads/dp-projet/SimulateurDeParticules",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,6 +80,26 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.Application" />
+      <module name="SimulateurDeParticules" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,10 +118,22 @@
       <workItem from="1701213802045" duration="296000" />
       <workItem from="1701248496264" duration="2929000" />
       <workItem from="1701279651180" duration="3251000" />
+      <workItem from="1701369106775" duration="374000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

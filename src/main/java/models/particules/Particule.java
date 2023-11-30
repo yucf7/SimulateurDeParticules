@@ -4,7 +4,7 @@ import models.particules.etat.etatParticule.EtatExcite;
 import models.particules.etat.etatParticule.EtatNormal;
 import models.particules.etat.etatParticule.EtatParticule;
 import models.particules.etat.phaseParticule.*;
-import particules.etat.phaseParticule.*;
+import models.particules.etat.phaseParticule.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -286,8 +286,10 @@ public abstract class Particule  {
 	public boolean estMorte() {
 		return this.phaseDeLaParticule == Phase.MORTE;
 	}
-	
-	
+
+	public boolean estExcitee() {
+		return this.etatDeLaParticule == Etat.EXCITE;
+	}
 	
 	/**
 	 * 
