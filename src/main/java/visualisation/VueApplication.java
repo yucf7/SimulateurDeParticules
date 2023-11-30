@@ -4,11 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 import controleur.Controleur;
 import observers.Observable;
@@ -31,6 +27,8 @@ public class VueApplication extends JFrame implements Observateur {
 	private JOptionPane nbParticules;
 
 
+	int deA;
+	int deB;
 
 	public VueApplication(String lib, Controleur c) {
 		super(lib);
@@ -39,21 +37,45 @@ public class VueApplication extends JFrame implements Observateur {
 		m = new JMenu(menu);
 		nbParticules = new JOptionPane();
 
-		for(int i = 0; i<libelleTypesParticules.length;i++) {
+
+		deA=0;
+		deB=0;
+		JPanel panel = new JPanel();
+		JLabel label=new JLabel("");
+		panel.add(label);
+
+		for(int i = 0; i<libelleTypesParticules.length;i++)
+		{
 			JMenuItem mi = new JMenuItem(libelleTypesParticules[i]);
 			final int b = i;
 			mi.addActionListener(new ActionListener(){
-		
+
 				@SuppressWarnings("static-access")
 				@Override
 				public void actionPerformed(ActionEvent e) {
-						String nombre = nbParticules.showInputDialog(null, "Saisir le nombre de particules à générer !", "Nombre de particules de type "+libelleTypesParticules[b], JOptionPane.QUESTION_MESSAGE);
-					    controleur.ajouterPopulation(Integer.parseInt(nombre), typesParticules[b]);
+					String nombre = nbParticules.showInputDialog(null, "Saisir le nombre de particules à générer !", "Nombre de particules de type "+libelleTypesParticules[b], JOptionPane.QUESTION_MESSAGE);
+					controleur.ajouterPopulation(Integer.parseInt(nombre), typesParticules[b]);
+
+					if (b==0)
+					{
+						deA += Integer.parseInt(nombre);
+					}
+					else
+					{
+						deB+= Integer.parseInt(nombre);
+					}
+
+					label.setText(deA+" de "+ libelleTypesParticules[0]+" et "+deB+" de "+ libelleTypesParticules[1]);
+
+
+
 				}});
 			m.add(mi);
-			c.getchampParticules().ajouterObservateur(this);
+
 		}
-		
+		//
+
+		this.getContentPane().add(panel,BorderLayout.NORTH);;
 		mb.add(m);
 		this.setJMenuBar(mb);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42617386-06e7-4861-8624-2e723c6eaedd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/Controleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/Champ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/Champ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/ChampDeParticules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ChampDeParticules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/ParticuleA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ParticuleA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/ParticuleB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ParticuleB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/visualisation/VueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visualisation/VueApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controleur/Controleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controleur/Controleur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/particules/Champ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/Champ.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/particules/ChampDeParticules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/ChampDeParticules.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueApplication$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueApplication.class" afterDir="false" />
     </list>
@@ -54,7 +45,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "add-state-dp",
-    "last_opened_file_path": "D:/Stud/INSA/S9/DP/projet/mini-projet/SimulateurDeParticules",
+    "last_opened_file_path": "C:/Users/57301/Desktop/UDEA/INSA/DesignPatterns/travailfinale/SimulateurDeParticules",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -66,6 +57,26 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.Application" />
+      <module name="SimulateurDeParticules" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -84,6 +95,7 @@
       <workItem from="1701213802045" duration="296000" />
       <workItem from="1701248496264" duration="2929000" />
       <workItem from="1701279651180" duration="3251000" />
+      <workItem from="1701292512034" duration="1037000" />
     </task>
     <servers />
   </component>
