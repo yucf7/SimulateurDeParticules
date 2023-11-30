@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import models.particules.Particule;
 import models.particules.ParticuleA;
 import models.particules.ParticuleB;
+import models.particules.ParticuleC;
 
 public class VueParticule {
 	
@@ -24,6 +25,9 @@ public class VueParticule {
 		
 		if (p.getClass() == ParticuleB.class) {
 			this.couleurParticule = new Color(0.0f, 1.0f, 0.0f);
+		}
+		if (p.getClass() == ParticuleC.class){
+			this.couleurParticule = new Color(0.0f, 0.0f, 1.0f);
 		}
 	}
 	
@@ -44,6 +48,10 @@ public class VueParticule {
 		
 		if (p.getClass() == ParticuleB.class) {
 			g.fillOval(x-(ParticuleB.epaisseur/2), y+(ParticuleB.epaisseur/2), (ParticuleB.epaisseur), ParticuleB.epaisseur);
+		}
+
+		if (p.getClass() == ParticuleC.class) {
+			g.fillOval(x-(ParticuleC.epaisseur/2), y+(ParticuleC.epaisseur/2), (ParticuleC.epaisseur), ParticuleC.epaisseur);
 		}
 		
 	}
