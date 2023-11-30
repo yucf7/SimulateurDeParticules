@@ -9,7 +9,7 @@ public class ParticuleB extends Particule {
 	
 	
 	public ParticuleB (Champ c, double x, double y,
-			double dC) {
+			double dC, boolean isEpileptic) {
 		champ = c;
 		this.x = x;
 		this.y = y;
@@ -21,12 +21,14 @@ public class ParticuleB extends Particule {
 		this.passageFINDEVIE = 300;
 		this.passageMORT = 700;
 		this.etatCourant = etatNormal;
+		this.isEpileptic = isEpileptic;
 
 
 	}
 	
 
 	public void resetVitesse() {
+		this.prochaineVitesse = 30f;
 	}
 	
 

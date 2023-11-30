@@ -4,7 +4,7 @@ import models.particules.etat.etatParticule.EtatExcite;
 import models.particules.etat.etatParticule.EtatNormal;
 import models.particules.etat.etatParticule.EtatParticule;
 import models.particules.etat.phaseParticule.*;
-import particules.etat.phaseParticule.*;
+import models.particules.etat.phaseParticule.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,7 @@ import java.util.List;
 
 public abstract class Particule  {
 
+	protected boolean isEpileptic;
 	protected EtatParticule etatNormal = new EtatNormal();
 	protected EtatParticule etatExcite = new EtatExcite();
 	protected EtatParticule etatCourant;
@@ -26,6 +27,15 @@ public abstract class Particule  {
 	public Particule() {
 		etatCourant = etatNormal;
 		phaseCourante = phaseJeune;
+	}
+
+	/*public Particule() {
+		etatCourant = etatNormal;
+		phaseCourante = phaseJeune;
+	}*/
+
+	public boolean isItEpileptic(){
+		return false;
 	}
 
 	public void gestionEtat() {
