@@ -1,4 +1,4 @@
-package particules;
+package models.particules;
 
 import java.util.List;
 

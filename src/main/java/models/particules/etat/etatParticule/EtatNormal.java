@@ -1,6 +1,6 @@
-package particules.etat.etatParticule;
+package models.particules.etat.etatParticule;
 
-import particules.Particule;
+import models.particules.Particule;
 
 public class EtatNormal implements EtatParticule {
 

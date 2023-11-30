@@ -1,6 +1,6 @@
 package util;
 
-import particules.Particule;
+import models.particules.Particule;
 
 /* Utilitaires pour des calculs de distance et de direction */
 

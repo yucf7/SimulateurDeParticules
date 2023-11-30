@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 import controleur.Controleur;
 
-import particules.Particule;
+import models.particules.Particule;
 
 
 public class VueChampDeParticules extends JPanel {

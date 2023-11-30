@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import controleur.Controleur;
 
-import particules.Particule;
+import models.particules.Particule;
 
 
 public class Simulateur implements Runnable {

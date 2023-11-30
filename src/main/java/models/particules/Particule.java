@@ -1,8 +1,9 @@
-package particules;
+package models.particules;
 
-import particules.etat.etatParticule.EtatExcite;
-import particules.etat.etatParticule.EtatNormal;
-import particules.etat.etatParticule.EtatParticule;
+import models.particules.etat.etatParticule.EtatExcite;
+import models.particules.etat.etatParticule.EtatNormal;
+import models.particules.etat.etatParticule.EtatParticule;
+import models.particules.etat.phaseParticule.*;
 import particules.etat.phaseParticule.*;
 
 import java.util.ArrayList;

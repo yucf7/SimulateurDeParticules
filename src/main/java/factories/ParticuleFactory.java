@@ -1,9 +1,9 @@
 package factories;
 
-import particules.Champ;
-import particules.Particule;
-import particules.ParticuleA;
-import particules.ParticuleB;
+import models.particules.Champ;
+import models.particules.Particule;
+import models.particules.ParticuleA;
+import models.particules.ParticuleB;
 
 public class ParticuleFactory {
 

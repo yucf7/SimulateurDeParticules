@@ -4,9 +4,9 @@ import java.util.List;
 
 import observers.Observable;
 import observers.Observateur;
-import particules.Champ;
-import particules.ChampDeParticules;
-import particules.Particule;
+import models.particules.Champ;
+import models.particules.ChampDeParticules;
+import models.particules.Particule;
 import simulation.Simulateur;
 import visualisation.VueApplication;
 

@@ -3,9 +3,9 @@ package visualisation;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import particules.Particule;
-import particules.ParticuleA;
-import particules.ParticuleB;
+import models.particules.Particule;
+import models.particules.ParticuleA;
+import models.particules.ParticuleB;
 
 public class VueParticule {
 	

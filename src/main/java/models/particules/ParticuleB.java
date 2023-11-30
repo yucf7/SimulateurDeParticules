@@ -1,56 +1,60 @@
-package particules;
+package models.particules;
 
 import java.util.List;
 
 
-public class ParticuleA extends Particule {
+public class ParticuleB extends Particule {
 
 	
 	
 	
-	public ParticuleA (Champ c, double x, double y,
+	public ParticuleB (Champ c, double x, double y,
 			double dC) {
-		this.champ = c;
+		champ = c;
 		this.x = x;
 		this.y = y;
 		directionCourante = dC;
-		vitesseCourante = 10f;
-		prochaineDirection = dC;
-		prochaineVitesse = 10f;
-
-		this.passageACTIVE = 500;
-		this.passageFINDEVIE = 1500;
-		this.passageMORT = 2000;
+		vitesseCourante = 30f;
+		this.prochaineDirection = dC;
+		this.prochaineVitesse = 30f;
+		this.passageACTIVE = 100;
+		this.passageFINDEVIE = 300;
+		this.passageMORT = 700;
 		this.etatCourant = etatNormal;
+
+
 	}
 	
-	
-	
+
+	public void resetVitesse() {
+	}
 	
 
 	@Override
-	public boolean collisionSimple(List<Particule> c)  {
-		
+	public boolean collisionSimple(List<Particule> c) {
 		List<Particule> enCollisionFrontale = this.collisionSimpleBilateral(this.champ.getParticules());
 		
 		if (enCollisionFrontale.size() != 1) 
 			return false;
 		else {
 			Particule.collisionsSimplesTraitees.add(this);
-			if (this.directionCourante > Math.PI)
+			if (this.directionCourante > Math.PI) {
 				this.prochaineDirection = this.directionCourante - Math.PI;
-			else 
+			}
+			else { 
 				this.prochaineDirection = this.directionCourante + Math.PI;
-
+			}
+			
+			
 			for (Particule p : enCollisionFrontale) {
 				if (p.directionCourante > Math.PI)
 					p.prochaineDirection = p.directionCourante - Math.PI;
 				else 
 					p.prochaineDirection = p.directionCourante + Math.PI;
 				Particule.collisionsSimplesTraitees.add(p);
-				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive ) {
-					if (p.getClass() == ParticuleA.class) {
-						this.champ.naissance(0, this.x, this.y);
+				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive) {
+					if (p.getClass() == ParticuleB.class) {
+						this.champ.naissance(1, this.x, this.y);
 						p.phaseCourante = phaseMorte;
 						this.phaseCourante = phaseMorte;
 						phaseCourante.gestionPhase(this);
@@ -60,7 +64,7 @@ public class ParticuleA extends Particule {
 						
 					}
 				
-					if (p.getClass() == ParticuleB.class) {
+					if (p.getClass() == ParticuleA.class) {
 						this.resetVitesse();
 						p.resetVitesse();
 						this.champ.naissance(0,this.x, this.y);
@@ -101,19 +105,11 @@ public class ParticuleA extends Particule {
 		
 		
 		return true;
-	}
 
-
-
-
-
-	@Override
-	public void resetVitesse() {
 	}
 
 	public void setProchaineVitesse(double prochaineVitesse){
 		this.prochaineVitesse = prochaineVitesse;
 	}
-
 
 }

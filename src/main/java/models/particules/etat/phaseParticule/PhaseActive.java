@@ -1,6 +1,6 @@
-package particules.etat.phaseParticule;
+package models.particules.etat.phaseParticule;
 
-import particules.Particule;
+import models.particules.Particule;
 
 public class PhaseActive implements PhaseParticule{
     @Override
