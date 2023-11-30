@@ -40,19 +40,9 @@ public class ParticuleB extends Particule {
 			return false;
 		else {
 			Particule.collisionsSimplesTraitees.add(this);
-			if (this.directionCourante > Math.PI) {
-				this.prochaineDirection = this.directionCourante - Math.PI;
-			}
-			else { 
-				this.prochaineDirection = this.directionCourante + Math.PI;
-			}
-			
-			
+			Particule.oppositeDirection(this);
 			for (Particule p : enCollisionFrontale) {
-				if (p.directionCourante > Math.PI)
-					p.prochaineDirection = p.directionCourante - Math.PI;
-				else 
-					p.prochaineDirection = p.directionCourante + Math.PI;
+				Particule.oppositeDirection(p);
 				Particule.collisionsSimplesTraitees.add(p);
 				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive) {
 					if (p.getClass() == ParticuleB.class) {
@@ -63,9 +53,7 @@ public class ParticuleB extends Particule {
 						phaseCourante.gestionPhase(p);
 						this.champ.getParticules().remove(this);
 						this.champ.getParticules().remove(p);
-						
 					}
-				
 					if (p.getClass() == ParticuleA.class) {
 						this.resetVitesse();
 						p.resetVitesse();

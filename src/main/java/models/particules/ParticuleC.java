@@ -37,32 +37,32 @@ public class ParticuleC extends Particule {
                     this.guerisonEpilepsie(p);
                 }
                 else if (this.etatCourant == etatExcite && p.etatCourant == etatExcite) {
-                      this.oppositeDirection(p);
-                      this.oppositeDirection(this);
+                      Particule.oppositeDirection(p);
+                      Particule.oppositeDirection(this);
                       p.etatCourant = etatNormal;
                       p.resetVitesse();
                       this.etatCourant = etatNormal;
                       this.resetVitesse();
                 }
                 else if(this.etatCourant == etatExcite && p.etatCourant == etatNormal){
-                      this.oppositeDirection(p);
-                      this.oppositeDirection(this);
+                      Particule.oppositeDirection(p);
+                      Particule.oppositeDirection(this);
                       p.etatCourant = etatExcite;
                       p.augmentationVitesse();
                       this.etatCourant = etatNormal;
                       this.resetVitesse();
                 }
                 else if(this.etatCourant == etatNormal && p.etatCourant == etatExcite){
-                      this.oppositeDirection(p);
-                      this.oppositeDirection(this);
+                      Particule.oppositeDirection(p);
+                      Particule.oppositeDirection(this);
                       p.etatCourant = etatNormal;
                       p.resetVitesse();
                       this.etatCourant = etatExcite;
                       this.setProchaineVitesse(17f);
                 }
                 else if(this.etatCourant == etatNormal && p.etatCourant == etatNormal){
-                      this.oppositeDirection(p);
-                      this.oppositeDirection(this);
+                      Particule.oppositeDirection(p);
+                      Particule.oppositeDirection(this);
                       p.etatCourant = etatExcite;
                       p.augmentationVitesse();;
                       this.etatCourant = etatExcite;
@@ -82,8 +82,8 @@ public class ParticuleC extends Particule {
         otherParticle.resetVitesse();
         this.etatCourant = etatNormal;
         otherParticle.resetVitesse();
-        this.oppositeDirection(otherParticle);
-        this.oppositeDirection(this);
+        Particule.oppositeDirection(otherParticle);
+        Particule.oppositeDirection(this);
     }
 
 
@@ -94,16 +94,6 @@ public class ParticuleC extends Particule {
     @Override
     public void resetVitesse() {
         this.prochaineVitesse = 15f;
-    }
-
-    public void oppositeDirection(Particule particule) {
-        if (particule.directionCourante > Math.PI) {
-            particule.prochaineDirection = particule.directionCourante - Math.PI;
-        }
-        else { 
-            particule.prochaineDirection = particule.directionCourante + Math.PI;
-        }
-        
     }
 
 

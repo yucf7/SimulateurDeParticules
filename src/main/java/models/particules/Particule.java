@@ -4,7 +4,7 @@ import models.particules.etat.etatParticule.EtatExcite;
 import models.particules.etat.etatParticule.EtatNormal;
 import models.particules.etat.etatParticule.EtatParticule;
 import models.particules.etat.phaseParticule.*;
-import models.particules.etat.phaseParticule.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,7 +94,16 @@ public abstract class Particule  {
 	
 	public static  List<Particule> collisionsSimplesTraitees = new ArrayList<Particule>();
 	
-	
+	public static void oppositeDirection(Particule particule) {
+        if (particule.directionCourante > Math.PI) {
+            particule.prochaineDirection = particule.directionCourante - Math.PI;
+        }
+        else { 
+            particule.prochaineDirection = particule.directionCourante + Math.PI;
+        }
+        
+    }
+
 	public static final int epaisseur = 10;
 	
 	
