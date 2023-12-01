@@ -9,9 +9,6 @@ import java.util.List;
 
 public class ParticuleB extends Particule {
 
-
-	
-	
 	public ParticuleB (Champ c, double x, double y,
 			double dC, boolean isEpileptic) {
 		champ = c;
@@ -27,8 +24,6 @@ public class ParticuleB extends Particule {
 		this.etatCourant = etatNormal;
 		this.visibilityCourante = ParticuleVisible;
 		this.isEpileptic = isEpileptic;
-
-
 	}
 	
 

@@ -16,9 +16,9 @@ public class ParticuleA extends Particule {
 		this.x = x;
 		this.y = y;
 		directionCourante = dC;
-		vitesseCourante = 10f;
+		vitesseCourante = 4f;
 		prochaineDirection = dC;
-		prochaineVitesse = 10f;
+		prochaineVitesse = 4f;
 			
 		this.passageACTIVE = 500;
 		this.passageFINDEVIE = 1500;
@@ -54,7 +54,7 @@ public class ParticuleA extends Particule {
 				}
 
 
-				if (this.etatCourant instanceof EtatNormal && p.etatCourant instanceof EtatExcite
+				if (this.etatCourant instanceof EtatExcite && p.etatCourant instanceof EtatExcite
 						&& this.phaseCourante instanceof PhaseActive && p.phaseCourante instanceof PhaseActive
 						&& this.isEpileptic && p.getClass() == ParticuleC.class) {
 					this.guerisonEpilepsie(this);
@@ -127,7 +127,7 @@ public class ParticuleA extends Particule {
 
 	@Override
 	public void resetVitesse() {
-		this.prochaineVitesse = 10f;
+		this.prochaineVitesse = 4f;
 	}
 
 	public void setProchaineVitesse(double prochaineVitesse){

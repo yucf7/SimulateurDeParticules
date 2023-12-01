@@ -460,17 +460,15 @@ public abstract class Particule  {
 	public abstract void resetVitesse() ;
 
 
+	private static int counter;
 	public void setVisibility(){
 
 		if(this.isEpileptic){
-			if(nbTour%2==0 && nbTour > 0){
-				if (this.getParticuleVisibility() == Visibility.Visible) {
-					setParticuleVisibility(Visibility.Invisible);
-				} else if (this.getParticuleVisibility() == Visibility.Invisible) {
-					setParticuleVisibility(Visibility.Visible);
-				}
-			} else if (nbTour==0) {
+
+			if (nbTour % 4 < 2) {
 				setParticuleVisibility(Visibility.Visible);
+			} else {
+				setParticuleVisibility(Visibility.Invisible);
 			}
 
 		} else {
@@ -478,6 +476,9 @@ public abstract class Particule  {
 		}
 
 	}
+
+
+
 
 	public void guerisonEpilepsie(Particule otherParticle) {
 		// Guérrir les particules epil

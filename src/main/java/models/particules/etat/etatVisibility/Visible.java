@@ -5,7 +5,7 @@ import models.particules.Particule;
 public class Visible implements VisibilityParticule{
     @Override
     public void gestionVisibility(Particule particule) {
-        particule.setParticuleVisibility(Particule.Visibility.Invisible);
+        particule.setParticuleVisibility(Particule.Visibility.Visible);
     }
 
 }

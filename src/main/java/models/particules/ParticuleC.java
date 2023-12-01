@@ -8,16 +8,14 @@ import java.util.List;
 
 public class ParticuleC extends Particule {
 
-    
-
     public ParticuleC(Champ c, double x, double y, double dC) {
         this.champ = c;
         this.x = x;
         this.y = y;
         this.directionCourante = dC;
-        this.vitesseCourante = 15f;
+        this.vitesseCourante = 4f;
         this.prochaineDirection = dC;
-        this.prochaineVitesse = 15f;
+        this.prochaineVitesse = 4f;
         this.isEpileptic = false;
 
         this.etatCourant = etatNormal;
@@ -25,14 +23,12 @@ public class ParticuleC extends Particule {
 
         this.passageACTIVE = 10;
         this.passageFINDEVIE = 50;
-        this.passageMORT = 10;
+        this.passageMORT = 50100;
     }
 
     @Override
     public boolean collisionSimple(List<Particule> c) {
         List<Particule> enCollisionFrontale = this.collisionSimpleBilateral(this.champ.getParticules());
-
-
 
         if (enCollisionFrontale.size() != 1){
             return false;
@@ -60,7 +56,6 @@ public class ParticuleC extends Particule {
 
                 }
                 else if(this.etatCourant instanceof EtatExcite && p.etatCourant instanceof EtatNormal){
-
                       p.etatCourant = etatExcite;
                       p.augmentationVitesse();
                       this.etatCourant = etatNormal;
@@ -69,6 +64,7 @@ public class ParticuleC extends Particule {
                     etatCourant.gestionEtat(p);
 
                 }
+
                 else if(this.etatCourant instanceof EtatNormal && p.etatCourant instanceof EtatExcite){
 
                       p.etatCourant = etatNormal;
@@ -92,14 +88,9 @@ public class ParticuleC extends Particule {
 
                 }
             }
-            
         }
-
         return true;
     }
-
-
-
 
 	public void setProchaineVitesse(double prochaineVitesse){
 		this.prochaineVitesse = prochaineVitesse;

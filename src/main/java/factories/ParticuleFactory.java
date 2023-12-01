@@ -18,7 +18,7 @@ public class ParticuleFactory {
     }
     public Particule createParticuleA(Champ c, double x, double y, double dC) {
         
-        if(Math.random() < 0.18){
+        if(Math.random() < 0.80){ // !!!!!!!!!! TO CHANGE TO 0.18
             return new ParticuleA(c, x, y, dC,true);
         }
         else{

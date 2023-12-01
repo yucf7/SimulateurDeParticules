@@ -37,7 +37,6 @@ public class VueChampDeParticules extends JPanel {
 			p.setVisibility();
 			if (p.visibilityCourante == p.ParticuleVisible   ) { // && p.getPhaseCourante() == p.getPhaseActive() && p.getEtatCourant() == p.getEtatExcite()
 				this.particulesADessiner.add(new VueParticule(p));
-
 			}
 		}
 	}
