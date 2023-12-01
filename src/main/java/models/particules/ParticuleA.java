@@ -16,10 +16,9 @@ public class ParticuleA extends Particule {
 		this.x = x;
 		this.y = y;
 		directionCourante = dC;
-		vitesseCourante = 4f;
+		vitesseCourante = 10f;
 		prochaineDirection = dC;
-		prochaineVitesse = 4f;
-			
+		prochaineVitesse = 10f;
 		this.passageACTIVE = 500;
 		this.passageFINDEVIE = 1500;
 		this.passageMORT = 2000;
