@@ -1,5 +1,6 @@
 package models.particules;
 
+import factories.EtatFactory;
 import models.particules.etat.etatParticule.EtatExcite;
 import models.particules.etat.etatParticule.EtatNormal;
 import models.particules.etat.etatParticule.EtatParticule;
@@ -12,8 +13,9 @@ import java.util.List;
 
 public abstract class Particule  {
 
-	protected EtatParticule etatNormal = new EtatNormal();
-	protected EtatParticule etatExcite = new EtatExcite();
+	protected EtatFactory etatFactory = new EtatFactory();
+	protected EtatParticule etatNormal = etatFactory.createEtatNormal();
+	protected EtatParticule etatExcite = etatFactory.createEtatExcite();
 	protected EtatParticule etatCourant;
 
 	protected PhaseParticule phaseActive = new PhaseActive();
