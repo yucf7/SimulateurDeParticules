@@ -9,13 +9,15 @@ import java.util.List;
 public class ParticuleC extends Particule {
 
     public ParticuleC(Champ c, double x, double y, double dC) {
+
+
         this.champ = c;
         this.x = x;
         this.y = y;
         this.directionCourante = dC;
-        this.vitesseCourante = 4f;
+        this.vitesseCourante = 15f;
         this.prochaineDirection = dC;
-        this.prochaineVitesse = 4f;
+        this.prochaineVitesse = 15f;
         this.isEpileptic = false;
 
         this.etatCourant = etatNormal;
@@ -23,7 +25,7 @@ public class ParticuleC extends Particule {
 
         this.passageACTIVE = 10;
         this.passageFINDEVIE = 50;
-        this.passageMORT = 50100;
+        this.passageMORT = 10;
     }
 
     @Override
