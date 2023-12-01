@@ -5,11 +5,11 @@ import java.util.List;
 
 public class ParticuleB extends Particule {
 
-	
+
 	
 	
 	public ParticuleB (Champ c, double x, double y,
-			double dC) {
+			double dC, boolean isEpileptic) {
 		champ = c;
 		this.x = x;
 		this.y = y;
@@ -21,12 +21,15 @@ public class ParticuleB extends Particule {
 		this.passageFINDEVIE = 300;
 		this.passageMORT = 700;
 		this.etatCourant = etatNormal;
+		this.visibilityCourante = ParticuleVisible;
+		this.isEpileptic = isEpileptic;
 
 
 	}
 	
 
 	public void resetVitesse() {
+		this.prochaineVitesse = 30f;
 	}
 	
 
@@ -38,20 +41,28 @@ public class ParticuleB extends Particule {
 			return false;
 		else {
 			Particule.collisionsSimplesTraitees.add(this);
-			if (this.directionCourante > Math.PI) {
-				this.prochaineDirection = this.directionCourante - Math.PI;
-			}
-			else { 
-				this.prochaineDirection = this.directionCourante + Math.PI;
-			}
-			
-			
+			Particule.oppositeDirection(this);
+
+
 			for (Particule p : enCollisionFrontale) {
-				if (p.directionCourante > Math.PI)
-					p.prochaineDirection = p.directionCourante - Math.PI;
-				else 
-					p.prochaineDirection = p.directionCourante + Math.PI;
+				Particule.oppositeDirection(p);
 				Particule.collisionsSimplesTraitees.add(p);
+
+				if((this.isEpileptic  && this.phaseCourante == this.phaseActive) || (p.isEpileptic  && p.phaseCourante == p.phaseActive)){
+					if(p.getClass() != ParticuleC.class){
+						p.isEpileptic = true;
+						this.isEpileptic = true;
+					}
+				}
+
+				if (this.etatCourant == etatExcite && p.etatCourant == etatExcite
+						&& this.phaseCourante == phaseActive && p.phaseCourante == phaseActive
+						&& this.isEpileptic && p.getClass() == ParticuleC.class) {
+					this.guerisonEpilepsie(this);
+				}
+
+				//----------------------------------------------------------------
+
 				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive) {
 					if (p.getClass() == ParticuleB.class) {
 						this.champ.naissance(1, this.x, this.y);
@@ -61,9 +72,7 @@ public class ParticuleB extends Particule {
 						phaseCourante.gestionPhase(p);
 						this.champ.getParticules().remove(this);
 						this.champ.getParticules().remove(p);
-						
 					}
-				
 					if (p.getClass() == ParticuleA.class) {
 						this.resetVitesse();
 						p.resetVitesse();

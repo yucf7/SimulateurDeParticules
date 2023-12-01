@@ -149,6 +149,7 @@ public class Controleur implements Observateur {
 			HashMap<String, Integer> particleCounts = new HashMap<>();
 			int particleCountA = 0;
 			int particleCountB = 0;
+			int particleCountC = 0;
 
 			// calcul du nombre de particules
 			for (Particule particle : updatedParticles) {
@@ -156,11 +157,14 @@ public class Controleur implements Observateur {
 					particleCountA++;
 				} else if (particle instanceof ParticuleB) {
 					particleCountB++;
-				}
+				} else if (particle instanceof ParticuleC) {
+				particleCountC++;
+			}
 			}
 
 			particleCounts.put("A", particleCountA);
 			particleCounts.put("B", particleCountB);
+			particleCounts.put("C", particleCountC);
 			this.nombreParticules = particleCounts;
 			this.application.updateNombreParticules(this.nombreParticules);
 			this.majVue();

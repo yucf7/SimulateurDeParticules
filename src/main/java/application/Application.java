@@ -1,4 +1,5 @@
 package application;
+
 import controleur.Controleur;
 
 public class Application {

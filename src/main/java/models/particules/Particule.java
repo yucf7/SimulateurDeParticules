@@ -1,11 +1,12 @@
 package models.particules;
 
 import factories.EtatFactory;
-import models.particules.etat.etatParticule.EtatExcite;
-import models.particules.etat.etatParticule.EtatNormal;
 import models.particules.etat.etatParticule.EtatParticule;
+import models.particules.etat.etatVisibility.Invisible;
+import models.particules.etat.etatVisibility.VisibilityParticule;
+import models.particules.etat.etatVisibility.Visible;
 import models.particules.etat.phaseParticule.*;
-import models.particules.etat.phaseParticule.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,20 @@ public abstract class Particule  {
 	protected EtatFactory etatFactory = new EtatFactory();
 	protected EtatParticule etatNormal = etatFactory.createEtatNormal();
 	protected EtatParticule etatExcite = etatFactory.createEtatExcite();
+
 	protected EtatParticule etatCourant;
+
+	protected boolean isEpileptic;
+
+	public boolean isEpileptic() {
+		return isEpileptic;
+	}
+
+	public void setEpileptic(boolean epileptic) {
+		isEpileptic = epileptic;
+	}
+
+
 
 	protected PhaseParticule phaseActive = new PhaseActive();
 	protected PhaseParticule phaseMorte = new PhaseMorte();
@@ -24,11 +38,38 @@ public abstract class Particule  {
 	protected PhaseParticule phaseJeune = new PhaseJeune();
 	protected PhaseParticule phaseCourante;
 
+	public EtatParticule getEtatExcite() {
+		return etatExcite;
+	}
+
+	public PhaseParticule getPhaseActive() {
+		return phaseActive;
+	}
+
+	public EtatParticule getEtatCourant() {
+		return etatCourant;
+	}
+
+	public PhaseParticule getPhaseCourante() {
+		return phaseCourante;
+	}
+
+	public void setPhaseCourante(PhaseParticule phaseCourante) {
+		this.phaseCourante = phaseCourante;
+	}
+
+	public VisibilityParticule ParticuleVisible = new Visible();
+
+	public VisibilityParticule ParticuleInvisible = new Invisible();
+
+	public VisibilityParticule visibilityCourante;
 
 	public Particule() {
 		etatCourant = etatNormal;
 		phaseCourante = phaseJeune;
 	}
+
+
 
 	public void gestionEtat() {
 		etatCourant.gestionEtat(this);
@@ -77,6 +118,16 @@ public abstract class Particule  {
 	public void setPhaseDeLaParticule(Phase phase) {
 		this.phaseDeLaParticule = phase;
 	}
+
+
+	public Visibility getParticuleVisibility() {
+		return this.particuleVisibility;
+	}
+
+	public void setParticuleVisibility(Visibility particuleVivibility) {
+		this.particuleVisibility = particuleVivibility;
+	}
+
 	/**
 	 * cette variable stocke doit etre reinitialiser a chaque tour de simulation. Elle stocke 
 	 * les collisions simples traitees. Si a est en collision simple avec b (et reciproquement), a est stockee dans 
@@ -86,7 +137,16 @@ public abstract class Particule  {
 	
 	public static  List<Particule> collisionsSimplesTraitees = new ArrayList<Particule>();
 	
-	
+	public static void oppositeDirection(Particule particule) {
+        if (particule.directionCourante > Math.PI) {
+            particule.prochaineDirection = particule.directionCourante - Math.PI;
+        }
+        else { 
+            particule.prochaineDirection = particule.directionCourante + Math.PI;
+        }
+        
+    }
+
 	public static final int epaisseur = 10;
 	
 	
@@ -117,6 +177,11 @@ public abstract class Particule  {
 	 *
 	 */
 	public enum Phase {JEUNE,ACTIVE,FINDEVIE,MORTE};
+
+	public enum Visibility {
+		Visible,
+		Invisible
+	}
 
 	
 	
@@ -149,6 +214,8 @@ public abstract class Particule  {
 	 * Variable permettant de savoir dans quel etat se situe la particule
 	 */
 	protected Etat etatDeLaParticule;
+
+	protected Visibility particuleVisibility;
 	
 	
 	
@@ -303,7 +370,7 @@ public abstract class Particule  {
 		List<Particule> result = new ArrayList<Particule>();
 		for (Particule p : c) {
 			if (p != this && util.DistancesEtDirections.distanceDepuisUnPoint(this.getX(), this.getY(), p.getX(), p.getY()) <= Particule.epaisseur) {
-					result.add(p);
+				result.add(p);
 			}
 		}
 		return result;
@@ -318,19 +385,25 @@ public abstract class Particule  {
 		
 		List<Particule> resultat = new ArrayList<Particule>();
 		List<Particule> aRetirer = new ArrayList<Particule>();
-		
+
 		resultat = this.extraireVoisins(voisins);
+
 		for (Particule p : resultat) {
 			if (p.extraireVoisins(voisins).size() > 1 ) {
+
+
 				aRetirer.add(p);
 			}
 			else {
 				if (Particule.collisionsSimplesTraitees.contains(p)) {
+
 					aRetirer.add(p);
 				}
 			}
 		}
+
 		resultat.removeAll(aRetirer);
+
 		return resultat;
 		
 	}
@@ -378,10 +451,50 @@ public abstract class Particule  {
 	 * La variable champ represente l'ensemble des particules presentes dans le champ de particules. 
 	 * Les nouvelles entitees eventuellement crees devront etre ajoutees dans le champ de particules.
 	 */
+
+
+
+
 	public abstract boolean collisionSimple(List<Particule> champ );
 
 
 	public abstract void resetVitesse() ;
+
+
+	public void setVisibility(){
+
+		if(this.isEpileptic){
+			if(nbTour%2==0 && nbTour > 0){
+				if (this.getParticuleVisibility() == Visibility.Visible) {
+					setParticuleVisibility(Visibility.Invisible);
+				} else if (this.getParticuleVisibility() == Visibility.Invisible) {
+					setParticuleVisibility(Visibility.Visible);
+				}
+			} else if (nbTour==0) {
+				setParticuleVisibility(Visibility.Visible);
+			}
+
+		} else {
+			setParticuleVisibility(Visibility.Visible);
+		}
+
+	}
+
+	public void guerisonEpilepsie(Particule otherParticle) {
+		// Guérrir les particules epil
+
+		System.out.println("Guerisé");
+		otherParticle.isEpileptic = false;
+		otherParticle.etatCourant = etatNormal;
+		otherParticle.resetVitesse();
+
+		this.etatCourant = etatNormal;
+		this.resetVitesse();
+
+		System.out.println(" 11 ");
+	}
+
+
 
 
 }

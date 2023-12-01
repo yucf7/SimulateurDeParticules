@@ -20,8 +20,8 @@ public class VueApplication extends JFrame implements Observateur {
 	private static final long serialVersionUID = -1697573906837405737L;
 	private VueChampDeParticules affichageSimulation = null;
 	private static final String menu = "Insertion particules";
-	private static final String[] libelleTypesParticules = {"Particules A", "Particules B"};
-	private static final int[] typesParticules = {0,1};
+	private static final String[] libelleTypesParticules = {"Particules A", "Particules B", "Particules C"};
+	private static final int[] typesParticules = {0,1,2};
 	private final Controleur controleur ;
 
 	private JMenu m;
@@ -82,7 +82,8 @@ public class VueApplication extends JFrame implements Observateur {
 	public void updateNombreParticules(HashMap<String, Integer> updatedNombreParticules) {
 		this.nombreParticules = updatedNombreParticules;
 		this.label.setText(this.nombreParticules.get("A") + " de " + libelleTypesParticules[0] +
-				" et " + this.nombreParticules.get("B") + " de " + libelleTypesParticules[1]);
+				" et " + this.nombreParticules.get("B") + " de " + libelleTypesParticules[1] +
+				" et " + this.nombreParticules.get("C") + " de " + libelleTypesParticules[2]);
 	}
 
 	public void majParticulesADessiner() {

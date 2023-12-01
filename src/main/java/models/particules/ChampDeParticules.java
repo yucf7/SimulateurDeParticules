@@ -95,10 +95,15 @@ public class ChampDeParticules implements Champ, Observable {
 		case 0: {
 			result = factory.createParticuleA(this,x,y,direction);
 			break;
+
 		}
 		
 		case 1: {
 			result = factory.createParticuleB(this,x,y,direction);
+			break;
+		}
+		case 2: {
+			result = factory.createParticuleC(this, x, y, direction);
 			break;
 		}
 		}
@@ -121,29 +126,27 @@ public class ChampDeParticules implements Champ, Observable {
 			epaisseur = ParticuleB.epaisseur;
 			break;
 		}
+		
+		case 2:{
+			epaisseur = ParticuleC.epaisseur;
+			break;
 		}
+	}
 		
-		
-		
-		for (int i = 0; i < nb; i++) {
-			int x = (int) (generateur.nextFloat() * largeur);
-			if (x > largeur - epaisseur)
-				x -= epaisseur;
-			int y = (int) (generateur.nextFloat() * hauteur);
-			if (y > hauteur - epaisseur)
-				y -= epaisseur;
-			
-			nouvelleGeneration.add(this.creationParticule(typeParticule, x, y));
+	for (int i = 0; i < nb; i++) {
+		int x = (int) (generateur.nextFloat() * largeur);
+		if (x > largeur - epaisseur)
+			x -= epaisseur;
+		int y = (int) (generateur.nextFloat() * hauteur);
+		if (y > hauteur - epaisseur)
+			y -= epaisseur;
+
+		nouvelleGeneration.add(this.creationParticule(typeParticule, x, y));
 		}
 		this.notifierObservateurs();
 		return nouvelleGeneration;
-		
 	}
-	
-	
-	
-	
-	
+
 	@Override
 	public List<Particule> getParticules() {
 		return population;
