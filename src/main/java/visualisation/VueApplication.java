@@ -3,14 +3,16 @@ package visualisation;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.List;
 
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 import controleur.Controleur;
+import models.particules.ChampDeParticules;
+import models.particules.Particule;
+import models.particules.ParticuleA;
+import models.particules.ParticuleB;
 import observers.Observable;
 import observers.Observateur;
 
@@ -29,8 +31,18 @@ public class VueApplication extends JFrame implements Observateur {
 
 	private JMenu m;
 	private JOptionPane nbParticules;
+	JPanel jPanel;
+	JLabel label;
 
+	HashMap<String, Integer> nombreParticules;
 
+	public HashMap<String, Integer> getNombreParticules() {
+		return nombreParticules;
+	}
+
+	public void setNombreParticules(HashMap<String, Integer> nombreParticules) {
+		this.nombreParticules = nombreParticules;
+	}
 
 	public VueApplication(String lib, Controleur c) {
 		super(lib);
@@ -38,6 +50,12 @@ public class VueApplication extends JFrame implements Observateur {
 		JMenuBar mb = new JMenuBar();
 		m = new JMenu(menu);
 		nbParticules = new JOptionPane();
+		this.jPanel= new JPanel();
+		this.label=new JLabel("");
+		this.jPanel.add(label);
+
+
+
 
 		for(int i = 0; i<libelleTypesParticules.length;i++) {
 			JMenuItem mi = new JMenuItem(libelleTypesParticules[i]);
@@ -52,8 +70,10 @@ public class VueApplication extends JFrame implements Observateur {
 				}});
 			m.add(mi);
 			c.getchampParticules().ajouterObservateur(this);
+
 		}
-		
+		this.getContentPane().add(this.jPanel,BorderLayout.NORTH);;
+
 		mb.add(m);
 		this.setJMenuBar(mb);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,14 +84,20 @@ public class VueApplication extends JFrame implements Observateur {
 		
 	}
 
+	public void updateNombreParticules(HashMap<String, Integer> updatedNombreParticules) {
+		this.nombreParticules = updatedNombreParticules;
+		this.label.setText(this.nombreParticules.get("A") + " de " + libelleTypesParticules[0] +
+				" et " + this.nombreParticules.get("B") + " de " + libelleTypesParticules[1]);
+	}
 
 	public void majParticulesADessiner() {
 		this.affichageSimulation.updateParticulesVisibles();
 		
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
+
+		@Override
+		public void update(Observable o) {
 		this.majParticulesADessiner();
 	}
 

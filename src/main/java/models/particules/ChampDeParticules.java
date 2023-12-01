@@ -44,6 +44,7 @@ public class ChampDeParticules implements Champ, Observable {
 	
 	public void setControleur(Controleur c) {
 		this.controleur = c;
+		this.observateurs.add(c);
 	}
 	
 	
@@ -59,6 +60,7 @@ public class ChampDeParticules implements Champ, Observable {
 	
 	public void ajouterUnePopulation(int type, int nb) {
 		this.nouvelleGeneration.addAll(this.generationParticule(nb,type));
+		this.notifierObservateurs();
 	}
 	
 	
@@ -67,6 +69,7 @@ public class ChampDeParticules implements Champ, Observable {
 	public void naissance(int type, double x, double y) {
 		this.nouvelleGeneration.add(this.creationParticule(type, x, y));
 		this.controleur.populationEtendueInVivo();
+		this.notifierObservateurs();
 	}
 	
 	@Override
@@ -99,6 +102,7 @@ public class ChampDeParticules implements Champ, Observable {
 			break;
 		}
 		}
+		this.notifierObservateurs();
 		return result;
 	}
 	
@@ -131,6 +135,7 @@ public class ChampDeParticules implements Champ, Observable {
 			
 			nouvelleGeneration.add(this.creationParticule(typeParticule, x, y));
 		}
+		this.notifierObservateurs();
 		return nouvelleGeneration;
 		
 	}
@@ -154,6 +159,7 @@ public class ChampDeParticules implements Champ, Observable {
 		}
 		
 		this.population.removeAll(particulesMortes);
+		this.notifierObservateurs();
 
 	}
 	
@@ -176,7 +182,7 @@ public class ChampDeParticules implements Champ, Observable {
 	@Override
 	public void notifierObservateurs() {
 		for (Observateur observateur : observateurs) {
-			observateur.update(this, null);
+			observateur.update(this);
 		}
 	}
 }
