@@ -15,8 +15,6 @@ public class Simulateur implements Runnable {
 
 	protected Thread threadSimulation = null;
 
-
-
 	public int getDelaiSimulation() {
 		return delaiSimulation;
 	}
@@ -70,8 +68,6 @@ public class Simulateur implements Runnable {
 		}
 	}
 
-	
-	
 	public Simulateur(int delaiSimulation, Controleur c) {
 		this.delaiSimulation = delaiSimulation;
 		this.c = c;

@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import controleur.Controleur;
 
 import models.particules.Particule;
+import models.particules.etat.phaseParticule.PhaseActive;
 
 
 public class VueChampDeParticules extends JPanel {
@@ -34,11 +35,11 @@ public class VueChampDeParticules extends JPanel {
 		this.particulesADessiner = new ArrayList<VueParticule>();
 
 		for (Particule p : c.getPopulationModele()) {
-			p.isVisible();
-			if (p.visibilityCourante == p.ParticuleVisible) {
+			p.setVisibility();
+			if (p.visibilityCourante == p.ParticuleVisible   ) { // && p.getPhaseCourante() == p.getPhaseActive() && p.getEtatCourant() == p.getEtatExcite()
 				this.particulesADessiner.add(new VueParticule(p));
-			}
 
+			}
 		}
 	}
 	

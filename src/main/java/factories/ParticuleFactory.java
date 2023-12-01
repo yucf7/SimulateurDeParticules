@@ -10,13 +10,12 @@ public class ParticuleFactory {
 
     public Particule createParticuleB(Champ c, double x, double y, double dC) {
         if(Math.random() < 0.18){
+            System.out.println("test 2");
             return new ParticuleB(c, x, y, dC,true);
         }
         else{
             return new ParticuleB(c, x, y, dC,false);
-
         }
-        
     }
     public Particule createParticuleA(Champ c, double x, double y, double dC) {
         

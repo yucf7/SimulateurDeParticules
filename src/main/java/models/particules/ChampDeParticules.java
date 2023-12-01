@@ -90,9 +90,9 @@ public class ChampDeParticules implements Champ, Observable {
 		
 		switch(typeParticule) {
 		case 0: {
-
 			result = factory.createParticuleA(this,x,y,direction);
 			break;
+
 		}
 		
 		case 1: {
@@ -129,26 +129,19 @@ public class ChampDeParticules implements Champ, Observable {
 		}
 	}
 		
-		
-		
-		for (int i = 0; i < nb; i++) {
-			int x = (int) (generateur.nextFloat() * largeur);
-			if (x > largeur - epaisseur)
-				x -= epaisseur;
-			int y = (int) (generateur.nextFloat() * hauteur);
-			if (y > hauteur - epaisseur)
-				y -= epaisseur;
-			
-			nouvelleGeneration.add(this.creationParticule(typeParticule, x, y));
+	for (int i = 0; i < nb; i++) {
+		int x = (int) (generateur.nextFloat() * largeur);
+		if (x > largeur - epaisseur)
+			x -= epaisseur;
+		int y = (int) (generateur.nextFloat() * hauteur);
+		if (y > hauteur - epaisseur)
+			y -= epaisseur;
+
+		nouvelleGeneration.add(this.creationParticule(typeParticule, x, y));
 		}
 		return nouvelleGeneration;
-		
 	}
-	
-	
-	
-	
-	
+
 	@Override
 	public List<Particule> getParticules() {
 		return population;

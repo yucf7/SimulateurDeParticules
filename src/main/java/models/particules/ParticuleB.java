@@ -48,12 +48,23 @@ public class ParticuleB extends Particule {
 				Particule.oppositeDirection(p);
 				Particule.collisionsSimplesTraitees.add(p);
 
-				if(p.isEpileptic  && p.phaseCourante == phaseActive || this.isEpileptic  && this.phaseCourante == p.phaseActive){
+				// ------------------------------------Yasser-----------------------
+				if((this.isEpileptic  && this.phaseCourante == this.phaseActive) || (p.isEpileptic  && p.phaseCourante == p.phaseActive)){
 					if(p.getClass() != ParticuleC.class){
 						p.isEpileptic = true;
 						this.isEpileptic = true;
 					}
 				}
+				// -----------------------------------------------------------------
+				//-----------------------------------------------------------------
+
+				if (this.etatCourant == etatExcite && p.etatCourant == etatExcite
+						&& this.phaseCourante == phaseActive && p.phaseCourante == phaseActive
+						&& this.isEpileptic && p.getClass() == ParticuleC.class) {
+					this.guerisonEpilepsie(this);
+				}
+
+				//----------------------------------------------------------------
 
 				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive) {
 					if (p.getClass() == ParticuleB.class) {

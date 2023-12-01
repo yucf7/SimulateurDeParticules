@@ -5,9 +5,7 @@ import java.util.List;
 
 public class ParticuleA extends Particule {
 
-	
-	
-	
+
 	public ParticuleA (Champ c, double x, double y,
 			double dC, boolean isEpileptic) {
 		this.champ = c;
@@ -40,20 +38,26 @@ public class ParticuleA extends Particule {
 			Particule.collisionsSimplesTraitees.add(this);
 			Particule.oppositeDirection(this);
 			for (Particule p : enCollisionFrontale) {
+
 				Particule.oppositeDirection(p);
 				Particule.collisionsSimplesTraitees.add(p);
 
-				if(p.isEpileptic  && p.phaseCourante == phaseActive || this.isEpileptic  && this.phaseCourante == p.phaseActive){
-
-					if(p.getClass() != ParticuleC.class){
+				if((this.isEpileptic  && this.phaseCourante == this.phaseActive) || (p.isEpileptic  && p.phaseCourante == p.phaseActive) ){
+					if((p.getClass() != ParticuleC.class)){
 						p.isEpileptic = true;
 						this.isEpileptic = true;
 					}
-
 				}
 
-				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive ) {
 
+				if (this.etatCourant == etatExcite && p.etatCourant == etatExcite
+						&& this.phaseCourante == phaseActive && p.phaseCourante == phaseActive
+						&& this.isEpileptic && p.getClass() == ParticuleC.class) {
+					this.guerisonEpilepsie(this);
+				}
+
+
+				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive ) {
 
 					if (p.getClass() == ParticuleA.class) {
 						this.champ.naissance(0, this.x, this.y);

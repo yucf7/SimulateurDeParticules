@@ -16,55 +16,60 @@ public class ParticuleC extends Particule {
         this.prochaineVitesse = 15f;
         this.isEpileptic = false;
 
-        this.passageACTIVE = 10;
-        this.passageFINDEVIE = 60;
-        this.passageMORT = 70;
         this.etatCourant = etatNormal;
         this.visibilityCourante = ParticuleVisible;
+
+
+        this.passageACTIVE = 500;
+        this.passageFINDEVIE = 1500;
+        this.passageMORT = 2000;
     }
 
     @Override
     public boolean collisionSimple(List<Particule> c) {
         List<Particule> enCollisionFrontale = this.collisionSimpleBilateral(this.champ.getParticules());
 
+
+
         if (enCollisionFrontale.size() != 1){
             return false;
         }
         else {
             Particule.collisionsSimplesTraitees.add(this);
+            Particule.oppositeDirection(this);
             for(Particule p : enCollisionFrontale){
 
-                if (this.etatCourant == etatExcite && p.etatCourant == etatExcite
-                        && this.phaseCourante == phaseActive && p.phaseCourante == phaseActive && p.isEpileptic) {
+                Particule.oppositeDirection(p);
+                Particule.collisionsSimplesTraitees.add(p);
+                if ((this.etatCourant == etatExcite) && (p.etatCourant == etatExcite)
+                        && (this.phaseCourante == phaseActive) && (p.phaseCourante == phaseActive) && (p.isEpileptic)) {
+                    System.out.println("Avant: " + p.isEpileptic);
                     this.guerisonEpilepsie(p);
+                    System.out.println("Apres: " + p.isEpileptic);
                 }
                 else if (this.etatCourant == etatExcite && p.etatCourant == etatExcite) {
-                      Particule.oppositeDirection(p);
-                      Particule.oppositeDirection(this);
+
                       p.etatCourant = etatNormal;
                       p.resetVitesse();
                       this.etatCourant = etatNormal;
                       this.resetVitesse();
                 }
                 else if(this.etatCourant == etatExcite && p.etatCourant == etatNormal){
-                      Particule.oppositeDirection(p);
-                      Particule.oppositeDirection(this);
+
                       p.etatCourant = etatExcite;
                       p.augmentationVitesse();
                       this.etatCourant = etatNormal;
                       this.resetVitesse();
                 }
                 else if(this.etatCourant == etatNormal && p.etatCourant == etatExcite){
-                      Particule.oppositeDirection(p);
-                      Particule.oppositeDirection(this);
+
                       p.etatCourant = etatNormal;
                       p.resetVitesse();
                       this.etatCourant = etatExcite;
                       this.setProchaineVitesse(17f);
                 }
                 else if(this.etatCourant == etatNormal && p.etatCourant == etatNormal){
-                      Particule.oppositeDirection(p);
-                      Particule.oppositeDirection(this);
+
                       p.etatCourant = etatExcite;
                       p.augmentationVitesse();;
                       this.etatCourant = etatExcite;
@@ -77,16 +82,7 @@ public class ParticuleC extends Particule {
         return true;
     }
 
-    private void guerisonEpilepsie(Particule otherParticle) {
-        // Healing the epileptic particle
-        otherParticle.isEpileptic = false;
-        otherParticle.etatCourant = etatNormal;
-        otherParticle.resetVitesse();
-        this.etatCourant = etatNormal;
-        otherParticle.resetVitesse();
-        Particule.oppositeDirection(otherParticle);
-        Particule.oppositeDirection(this);
-    }
+
 
 
 	public void setProchaineVitesse(double prochaineVitesse){

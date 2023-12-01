@@ -16,6 +16,15 @@ import java.util.List;
 public abstract class Particule  {
 
 	protected boolean isEpileptic;
+
+	public boolean isEpileptic() {
+		return isEpileptic;
+	}
+
+	public void setEpileptic(boolean epileptic) {
+		isEpileptic = epileptic;
+	}
+
 	protected EtatParticule etatNormal = new EtatNormal();
 	protected EtatParticule etatExcite = new EtatExcite();
 	protected EtatParticule etatCourant;
@@ -26,12 +35,33 @@ public abstract class Particule  {
 	protected PhaseParticule phaseJeune = new PhaseJeune();
 	protected PhaseParticule phaseCourante;
 
+	public EtatParticule getEtatExcite() {
+		return etatExcite;
+	}
+
+	public PhaseParticule getPhaseActive() {
+		return phaseActive;
+	}
+
+	public EtatParticule getEtatCourant() {
+		return etatCourant;
+	}
+
+	public PhaseParticule getPhaseCourante() {
+		return phaseCourante;
+	}
+
+	public void setPhaseCourante(PhaseParticule phaseCourante) {
+		this.phaseCourante = phaseCourante;
+	}
+
+	// ----------------------- Yasser ---------------------------
 	public VisibilityParticule ParticuleVisible = new Visible();
 
 	public VisibilityParticule ParticuleInvisible = new Invisible();
 
 	public VisibilityParticule visibilityCourante;
-
+	// ------------------------------------
 
 	public Particule() {
 		etatCourant = etatNormal;
@@ -39,9 +69,6 @@ public abstract class Particule  {
 	}
 
 
-	public boolean isItEpileptic(){
-		return false;
-	}
 
 	public void gestionEtat() {
 		etatCourant.gestionEtat(this);
@@ -92,7 +119,7 @@ public abstract class Particule  {
 	}
 
 
-
+	//--------------------------Yasser---------------
 	public Visibility getParticuleVisibility() {
 		return this.particuleVisibility;
 	}
@@ -341,7 +368,7 @@ public abstract class Particule  {
 		List<Particule> result = new ArrayList<Particule>();
 		for (Particule p : c) {
 			if (p != this && util.DistancesEtDirections.distanceDepuisUnPoint(this.getX(), this.getY(), p.getX(), p.getY()) <= Particule.epaisseur) {
-					result.add(p);
+				result.add(p);
 			}
 		}
 		return result;
@@ -356,19 +383,25 @@ public abstract class Particule  {
 		
 		List<Particule> resultat = new ArrayList<Particule>();
 		List<Particule> aRetirer = new ArrayList<Particule>();
-		
+
 		resultat = this.extraireVoisins(voisins);
+
 		for (Particule p : resultat) {
 			if (p.extraireVoisins(voisins).size() > 1 ) {
+
+
 				aRetirer.add(p);
 			}
 			else {
 				if (Particule.collisionsSimplesTraitees.contains(p)) {
+
 					aRetirer.add(p);
 				}
 			}
 		}
+
 		resultat.removeAll(aRetirer);
+
 		return resultat;
 		
 	}
@@ -426,8 +459,7 @@ public abstract class Particule  {
 	public abstract void resetVitesse() ;
 
 
-
-	public void isVisible(){
+	public void setVisibility(){
 
 		if(this.isEpileptic){
 			if(nbTour%2==0 && nbTour > 0){
@@ -445,6 +477,22 @@ public abstract class Particule  {
 		}
 
 	}
+
+	public void guerisonEpilepsie(Particule otherParticle) {
+		// Healing the epileptic particle
+
+		System.out.println("Guerisé");
+		otherParticle.isEpileptic = false;
+		otherParticle.etatCourant = etatNormal;
+		otherParticle.resetVitesse();
+
+		this.etatCourant = etatNormal;
+		this.resetVitesse();
+
+		System.out.println(" 11 ");
+	}
+
+
 
 
 }
