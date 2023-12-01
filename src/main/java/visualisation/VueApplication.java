@@ -23,7 +23,7 @@ public class VueApplication extends JFrame implements Observateur {
 	private static final long serialVersionUID = -1697573906837405737L;
 	private VueChampDeParticules affichageSimulation = null;
 	private static final String menu = "Insertion particules";
-	private static final String[] libelleTypesParticules = {"Particules A", "Particules B", "Particule C"};
+	private static final String[] libelleTypesParticules = {"Particules A", "Particules B", "Particules C"};
 	private static final int[] typesParticules = {0,1,2};
 	private final Controleur controleur ;
 

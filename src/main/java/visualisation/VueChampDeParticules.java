@@ -30,14 +30,17 @@ public class VueChampDeParticules extends JPanel {
 		setPreferredSize(new Dimension(c.getchampParticules().getLargeur()+Particule.epaisseur/2, c.getchampParticules().getHauteur()+Particule.epaisseur/2));
 	}
 
-	
 	public void updateParticulesVisibles() {
 		this.particulesADessiner = new ArrayList<VueParticule>();
+
 		for (Particule p : c.getPopulationModele()) {
-			this.particulesADessiner.add(new VueParticule(p));
+			p.isVisible();
+			if (p.visibilityCourante == p.ParticuleVisible) {
+				this.particulesADessiner.add(new VueParticule(p));
+			}
+
 		}
 	}
-	
 	
 	public void paint(Graphics gr) {
 		Graphics2D g = (Graphics2D) gr;
@@ -57,9 +60,5 @@ public class VueChampDeParticules extends JPanel {
 			this.particulesADessiner.removeAll(aSupprimer);
 		}
 	}
-
-	
-	
-	
 
 }

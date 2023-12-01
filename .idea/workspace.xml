@@ -5,12 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42617386-06e7-4861-8624-2e723c6eaedd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/Particule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/Particule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/ParticuleA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ParticuleA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/particules/ParticuleB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/particules/ParticuleB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/ParticuleA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/particules/ParticuleB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/factories/ParticuleFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/factories/ParticuleFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/particules/ChampDeParticules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/particules/ChampDeParticules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/particules/Particule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/particules/Particule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/particules/ParticuleA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/particules/ParticuleA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/particules/ParticuleB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/particules/ParticuleB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/particules/ParticuleC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/particules/ParticuleC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/visualisation/VueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visualisation/VueApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/visualisation/VueChampDeParticules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visualisation/VueChampDeParticules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/visualisation/VueParticule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visualisation/VueParticule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controleur/Controleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controleur/Controleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/factories/ParticuleFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/factories/ParticuleFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/ChampDeParticules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/ChampDeParticules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/Particule$Etat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/Particule$Etat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/Particule$Phase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/Particule$Phase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/Particule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/Particule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/ParticuleA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/ParticuleA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/ParticuleB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/ParticuleB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/ParticuleC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/ParticuleC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/etat/etatParticule/EtatExcite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/etat/etatParticule/EtatExcite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/etat/etatParticule/EtatNormal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/etat/etatParticule/EtatNormal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/etat/phaseParticule/PhaseActive.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/etat/phaseParticule/PhaseActive.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/etat/phaseParticule/PhaseFINDEVIE.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/etat/phaseParticule/PhaseFINDEVIE.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/etat/phaseParticule/PhaseJeune.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/etat/phaseParticule/PhaseJeune.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/particules/etat/phaseParticule/PhaseMorte.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/particules/etat/phaseParticule/PhaseMorte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Champ.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/ChampDeParticules.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Particule$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Particule$Etat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Particule$Phase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/Particule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/ParticuleB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/etatParticule/EtatExcite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/etatParticule/EtatNormal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/etatParticule/EtatParticule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseActive.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseFINDEVIE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseJeune.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseMorte.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/particules/etat/phaseParticule/PhaseParticule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/simulation/Simulateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simulation/Simulateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/DistancesEtDirections.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/DistancesEtDirections.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueApplication$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueChampDeParticules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueChampDeParticules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visualisation/VueParticule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visualisation/VueParticule.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,25 +82,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "add-state-dp",
-    "last_opened_file_path": "D:/Stud/INSA/S9/DP/projet/mini-projet/SimulateurDeParticules",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;yasser&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/STI 5A/Design Pattern/Projet&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,6 +119,8 @@
       <workItem from="1701213802045" duration="296000" />
       <workItem from="1701248496264" duration="2929000" />
       <workItem from="1701279651180" duration="3251000" />
+      <workItem from="1701386828236" duration="5296000" />
+      <workItem from="1701392668364" duration="2995000" />
     </task>
     <servers />
   </component>

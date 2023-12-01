@@ -90,6 +90,7 @@ public class ChampDeParticules implements Champ, Observable {
 		
 		switch(typeParticule) {
 		case 0: {
+
 			result = factory.createParticuleA(this,x,y,direction);
 			break;
 		}
@@ -100,6 +101,7 @@ public class ChampDeParticules implements Champ, Observable {
 		}
 		case 2: {
 			result = factory.createParticuleC(this, x, y, direction);
+			break;
 		}
 		}
 		return result;
@@ -125,7 +127,7 @@ public class ChampDeParticules implements Champ, Observable {
 			epaisseur = ParticuleC.epaisseur;
 			break;
 		}
-		}
+	}
 		
 		
 		

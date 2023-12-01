@@ -3,6 +3,9 @@ package models.particules;
 import models.particules.etat.etatParticule.EtatExcite;
 import models.particules.etat.etatParticule.EtatNormal;
 import models.particules.etat.etatParticule.EtatParticule;
+import models.particules.etat.etatVisibility.Invisible;
+import models.particules.etat.etatVisibility.VisibilityParticule;
+import models.particules.etat.etatVisibility.Visible;
 import models.particules.etat.phaseParticule.*;
 
 
@@ -23,16 +26,18 @@ public abstract class Particule  {
 	protected PhaseParticule phaseJeune = new PhaseJeune();
 	protected PhaseParticule phaseCourante;
 
+	public VisibilityParticule ParticuleVisible = new Visible();
+
+	public VisibilityParticule ParticuleInvisible = new Invisible();
+
+	public VisibilityParticule visibilityCourante;
+
 
 	public Particule() {
 		etatCourant = etatNormal;
 		phaseCourante = phaseJeune;
 	}
 
-	/*public Particule() {
-		etatCourant = etatNormal;
-		phaseCourante = phaseJeune;
-	}*/
 
 	public boolean isItEpileptic(){
 		return false;
@@ -85,6 +90,17 @@ public abstract class Particule  {
 	public void setPhaseDeLaParticule(Phase phase) {
 		this.phaseDeLaParticule = phase;
 	}
+
+
+
+	public Visibility getParticuleVisibility() {
+		return this.particuleVisibility;
+	}
+
+	public void setParticuleVisibility(Visibility particuleVivibility) {
+		this.particuleVisibility = particuleVivibility;
+	}
+
 	/**
 	 * cette variable stocke doit etre reinitialiser a chaque tour de simulation. Elle stocke 
 	 * les collisions simples traitees. Si a est en collision simple avec b (et reciproquement), a est stockee dans 
@@ -135,6 +151,11 @@ public abstract class Particule  {
 	 */
 	public enum Phase {JEUNE,ACTIVE,FINDEVIE,MORTE};
 
+	public enum Visibility {
+		Visible,
+		Invisible
+	}
+
 	
 	
 	/**
@@ -166,6 +187,8 @@ public abstract class Particule  {
 	 * Variable permettant de savoir dans quel etat se situe la particule
 	 */
 	protected Etat etatDeLaParticule;
+
+	protected Visibility particuleVisibility;
 	
 	
 	
@@ -393,10 +416,35 @@ public abstract class Particule  {
 	 * La variable champ represente l'ensemble des particules presentes dans le champ de particules. 
 	 * Les nouvelles entitees eventuellement crees devront etre ajoutees dans le champ de particules.
 	 */
+
+
+
+
 	public abstract boolean collisionSimple(List<Particule> champ );
 
 
 	public abstract void resetVitesse() ;
+
+
+
+	public void isVisible(){
+
+		if(this.isEpileptic){
+			if(nbTour%2==0 && nbTour > 0){
+				if (this.getParticuleVisibility() == Visibility.Visible) {
+					setParticuleVisibility(Visibility.Invisible);
+				} else if (this.getParticuleVisibility() == Visibility.Invisible) {
+					setParticuleVisibility(Visibility.Visible);
+				}
+			} else if (nbTour==0) {
+				setParticuleVisibility(Visibility.Visible);
+			}
+
+		} else {
+			setParticuleVisibility(Visibility.Visible);
+		}
+
+	}
 
 
 }

@@ -20,6 +20,7 @@ public class ParticuleC extends Particule {
         this.passageFINDEVIE = 60;
         this.passageMORT = 70;
         this.etatCourant = etatNormal;
+        this.visibilityCourante = ParticuleVisible;
     }
 
     @Override
@@ -32,6 +33,7 @@ public class ParticuleC extends Particule {
         else {
             Particule.collisionsSimplesTraitees.add(this);
             for(Particule p : enCollisionFrontale){
+
                 if (this.etatCourant == etatExcite && p.etatCourant == etatExcite
                         && this.phaseCourante == phaseActive && p.phaseCourante == phaseActive && p.isEpileptic) {
                     this.guerisonEpilepsie(p);

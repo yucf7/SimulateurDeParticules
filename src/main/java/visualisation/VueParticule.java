@@ -9,9 +9,6 @@ import models.particules.ParticuleB;
 import models.particules.ParticuleC;
 
 public class VueParticule {
-	
-	
-
 
 	private Particule p = null;
 	private Color couleurParticule = null;
@@ -36,8 +33,7 @@ public class VueParticule {
 		return p;
 	}
 	
-	
-	
+
 	public void seDessine(Graphics g) {
 		int x = (int) this.p.getX();
 		int y = (int) this.p.getY();

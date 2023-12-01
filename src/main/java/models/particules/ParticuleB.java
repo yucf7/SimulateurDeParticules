@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ParticuleB extends Particule {
 
-	
+
 	
 	
 	public ParticuleB (Champ c, double x, double y,
@@ -21,6 +21,7 @@ public class ParticuleB extends Particule {
 		this.passageFINDEVIE = 300;
 		this.passageMORT = 700;
 		this.etatCourant = etatNormal;
+		this.visibilityCourante = ParticuleVisible;
 		this.isEpileptic = isEpileptic;
 
 
@@ -41,9 +42,19 @@ public class ParticuleB extends Particule {
 		else {
 			Particule.collisionsSimplesTraitees.add(this);
 			Particule.oppositeDirection(this);
+
+
 			for (Particule p : enCollisionFrontale) {
 				Particule.oppositeDirection(p);
 				Particule.collisionsSimplesTraitees.add(p);
+
+				if(p.isEpileptic  && p.phaseCourante == phaseActive || this.isEpileptic  && this.phaseCourante == p.phaseActive){
+					if(p.getClass() != ParticuleC.class){
+						p.isEpileptic = true;
+						this.isEpileptic = true;
+					}
+				}
+
 				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive) {
 					if (p.getClass() == ParticuleB.class) {
 						this.champ.naissance(1, this.x, this.y);

@@ -22,12 +22,12 @@ public class ParticuleA extends Particule {
 		this.passageFINDEVIE = 1500;
 		this.passageMORT = 2000;
 		this.etatCourant = etatNormal;
+		this.visibilityCourante = ParticuleVisible;
 		this.isEpileptic = isEpileptic;
 	}
 	
 	
-	
-	
+
 
 	@Override
 	public boolean collisionSimple(List<Particule> c)  {
@@ -42,7 +42,19 @@ public class ParticuleA extends Particule {
 			for (Particule p : enCollisionFrontale) {
 				Particule.oppositeDirection(p);
 				Particule.collisionsSimplesTraitees.add(p);
+
+				if(p.isEpileptic  && p.phaseCourante == phaseActive || this.isEpileptic  && this.phaseCourante == p.phaseActive){
+
+					if(p.getClass() != ParticuleC.class){
+						p.isEpileptic = true;
+						this.isEpileptic = true;
+					}
+
+				}
+
 				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive ) {
+
+
 					if (p.getClass() == ParticuleA.class) {
 						this.champ.naissance(0, this.x, this.y);
 						p.phaseCourante = phaseMorte;
@@ -60,6 +72,8 @@ public class ParticuleA extends Particule {
 						this.champ.naissance(0,this.x, this.y);
 							
 					}
+
+
 				}
 				else  {
 					if (this.etatCourant == etatNormal) {
