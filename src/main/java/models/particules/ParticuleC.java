@@ -1,5 +1,9 @@
 package models.particules;
 
+import models.particules.etat.etatParticule.EtatExcite;
+import models.particules.etat.etatParticule.EtatNormal;
+import models.particules.etat.phaseParticule.PhaseActive;
+
 import java.util.List;
 
 public class ParticuleC extends Particule {
@@ -18,7 +22,6 @@ public class ParticuleC extends Particule {
 
         this.etatCourant = etatNormal;
         this.visibilityCourante = ParticuleVisible;
-
 
         this.passageACTIVE = 10;
         this.passageFINDEVIE = 50;
@@ -41,39 +44,52 @@ public class ParticuleC extends Particule {
 
                 Particule.oppositeDirection(p);
                 Particule.collisionsSimplesTraitees.add(p);
-                if ((this.etatCourant == etatExcite) && (p.etatCourant == etatExcite)
-                        && (this.phaseCourante == phaseActive) && (p.phaseCourante == phaseActive) && (p.isEpileptic)) {
-                    System.out.println("Avant: " + p.isEpileptic);
+                if ((this.etatCourant instanceof EtatExcite) && (p.etatCourant instanceof EtatExcite)
+                        && (this.phaseCourante instanceof PhaseActive) && (p.phaseCourante instanceof PhaseActive) && (p.isEpileptic)) {
                     this.guerisonEpilepsie(p);
-                    System.out.println("Apres: " + p.isEpileptic);
                 }
-                else if (this.etatCourant == etatExcite && p.etatCourant == etatExcite) {
+                else if (this.etatCourant instanceof EtatExcite && p.etatCourant instanceof EtatExcite) {
 
                       p.etatCourant = etatNormal;
                       p.resetVitesse();
                       this.etatCourant = etatNormal;
                       this.resetVitesse();
+                    etatCourant.gestionEtat(this);
+                    etatCourant.gestionEtat(p);
+
+
                 }
-                else if(this.etatCourant == etatExcite && p.etatCourant == etatNormal){
+                else if(this.etatCourant instanceof EtatExcite && p.etatCourant instanceof EtatNormal){
 
                       p.etatCourant = etatExcite;
                       p.augmentationVitesse();
                       this.etatCourant = etatNormal;
                       this.resetVitesse();
+                    etatCourant.gestionEtat(this);
+                    etatCourant.gestionEtat(p);
+
                 }
-                else if(this.etatCourant == etatNormal && p.etatCourant == etatExcite){
+                else if(this.etatCourant instanceof EtatNormal && p.etatCourant instanceof EtatExcite){
 
                       p.etatCourant = etatNormal;
                       p.resetVitesse();
                       this.etatCourant = etatExcite;
-                      this.setProchaineVitesse(17f);
+                    etatCourant.gestionEtat(this);
+                    etatCourant.gestionEtat(p);
+
+
+                    this.setProchaineVitesse(17f);
+
                 }
-                else if(this.etatCourant == etatNormal && p.etatCourant == etatNormal){
+                else if(this.etatCourant instanceof EtatNormal && p.etatCourant instanceof EtatNormal){
 
                       p.etatCourant = etatExcite;
                       p.augmentationVitesse();;
                       this.etatCourant = etatExcite;
                       this.resetVitesse();
+                      etatCourant.gestionEtat(this);
+                    etatCourant.gestionEtat(p);
+
                 }
             }
             

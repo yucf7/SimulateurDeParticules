@@ -145,7 +145,6 @@ public class Controleur implements Observateur {
 			ChampDeParticules champ = (ChampDeParticules) o;
 
 			List<Particule> updatedParticles = champ.getParticules();
-
 			HashMap<String, Integer> particleCounts = new HashMap<>();
 			int particleCountA = 0;
 			int particleCountB = 0;

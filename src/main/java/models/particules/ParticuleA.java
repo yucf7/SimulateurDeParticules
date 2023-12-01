@@ -1,5 +1,9 @@
 package models.particules;
 
+import models.particules.etat.etatParticule.EtatExcite;
+import models.particules.etat.etatParticule.EtatNormal;
+import models.particules.etat.phaseParticule.PhaseActive;
+
 import java.util.List;
 
 
@@ -42,7 +46,7 @@ public class ParticuleA extends Particule {
 				Particule.oppositeDirection(p);
 				Particule.collisionsSimplesTraitees.add(p);
 
-				if((this.isEpileptic  && this.phaseCourante == this.phaseActive) || (p.isEpileptic  && p.phaseCourante == p.phaseActive) ){
+				if((this.isEpileptic  && this.phaseCourante instanceof PhaseActive) || (p.isEpileptic  && p.phaseCourante == p.phaseActive) ){
 					if((p.getClass() != ParticuleC.class)){
 						p.isEpileptic = true;
 						this.isEpileptic = true;
@@ -50,14 +54,16 @@ public class ParticuleA extends Particule {
 				}
 
 
-				if (this.etatCourant == etatExcite && p.etatCourant == etatExcite
-						&& this.phaseCourante == phaseActive && p.phaseCourante == phaseActive
+				if (this.etatCourant instanceof EtatNormal && p.etatCourant instanceof EtatExcite
+						&& this.phaseCourante instanceof PhaseActive && p.phaseCourante instanceof PhaseActive
 						&& this.isEpileptic && p.getClass() == ParticuleC.class) {
 					this.guerisonEpilepsie(this);
 				}
 
-
-				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive ) {
+				if (p.etatCourant instanceof EtatExcite
+						&& this.etatCourant instanceof EtatExcite
+						&& p.phaseCourante instanceof PhaseActive &&
+						this.phaseCourante instanceof PhaseActive ) {
 
 					if (p.getClass() == ParticuleA.class) {
 						this.champ.naissance(0, this.x, this.y);
@@ -80,7 +86,7 @@ public class ParticuleA extends Particule {
 
 				}
 				else  {
-					if (this.etatCourant == etatNormal) {
+					if (this.etatCourant instanceof EtatNormal) {
 						this.etatCourant = etatExcite;
 						etatCourant.gestionEtat(this);
 						this.augmentationVitesse() ;
@@ -92,7 +98,7 @@ public class ParticuleA extends Particule {
 						this.resetVitesse();
 					}
 					
-					if (p.etatCourant == etatNormal) {
+					if (p.etatCourant instanceof EtatNormal) {
 						this.etatCourant = etatExcite;
 						etatCourant.gestionEtat(this);
 						p.augmentationVitesse() ;

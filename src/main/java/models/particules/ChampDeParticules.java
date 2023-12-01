@@ -67,9 +67,9 @@ public class ChampDeParticules implements Champ, Observable {
 	
 	@Override
 	public void naissance(int type, double x, double y) {
+		this.notifierObservateurs();
 		this.nouvelleGeneration.add(this.creationParticule(type, x, y));
 		this.controleur.populationEtendueInVivo();
-		this.notifierObservateurs();
 	}
 	
 	@Override

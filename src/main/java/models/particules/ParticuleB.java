@@ -1,5 +1,9 @@
 package models.particules;
 
+import models.particules.etat.etatParticule.EtatExcite;
+import models.particules.etat.etatParticule.EtatNormal;
+import models.particules.etat.phaseParticule.PhaseActive;
+
 import java.util.List;
 
 
@@ -55,15 +59,14 @@ public class ParticuleB extends Particule {
 					}
 				}
 
-				if (this.etatCourant == etatExcite && p.etatCourant == etatExcite
-						&& this.phaseCourante == phaseActive && p.phaseCourante == phaseActive
+				if (this.etatCourant instanceof EtatExcite && p.etatCourant instanceof EtatExcite
+						&& this.phaseCourante instanceof PhaseActive && p.phaseCourante instanceof PhaseActive
 						&& this.isEpileptic && p.getClass() == ParticuleC.class) {
 					this.guerisonEpilepsie(this);
 				}
 
-				//----------------------------------------------------------------
 
-				if (p.etatCourant == etatExcite && this.etatCourant == etatExcite && p.phaseCourante == phaseActive && this.phaseCourante == phaseActive) {
+				if (p.etatCourant instanceof EtatExcite && this.etatCourant instanceof EtatExcite && p.phaseCourante instanceof PhaseActive && this.phaseCourante instanceof PhaseActive) {
 					if (p.getClass() == ParticuleB.class) {
 						this.champ.naissance(1, this.x, this.y);
 						p.phaseCourante = phaseMorte;
@@ -81,7 +84,7 @@ public class ParticuleB extends Particule {
 					}
 				}
 				else  {
-					if (this.etatCourant == etatNormal) {
+					if (this.etatCourant instanceof EtatNormal) {
 						this.etatCourant = etatExcite;
 						etatCourant.gestionEtat(this);
 						this.augmentationVitesse() ;
@@ -93,7 +96,7 @@ public class ParticuleB extends Particule {
 						this.resetVitesse();
 					}
 					
-					if (p.etatCourant == etatNormal) {
+					if (p.etatCourant instanceof EtatNormal) {
 						this.etatCourant = etatExcite;
 						etatCourant.gestionEtat(this);
 						p.augmentationVitesse() ;

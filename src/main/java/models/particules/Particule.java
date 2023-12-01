@@ -269,17 +269,16 @@ public abstract class Particule  {
 	public void gestionCycle() {
 
 		if (this.nbTour == this.passageACTIVE) {
-			this.phaseDeLaParticule = Phase.ACTIVE;
+			this.phaseCourante = new PhaseActive();
 		}
 		
 		if (this.nbTour == this.passageFINDEVIE) {
-			this.phaseDeLaParticule = Phase.FINDEVIE;
+			this.phaseCourante = new PhaseFINDEVIE();
 		}
 		
 		
 		if (this.nbTour == this.passageMORT) {
-			this.phaseDeLaParticule = Phase.MORTE;
-		}
+			this.phaseCourante = new PhaseMorte();		}
 		
 	}
 
@@ -353,7 +352,7 @@ public abstract class Particule  {
 
 
 	public boolean estMorte() {
-		return this.phaseDeLaParticule == Phase.MORTE;
+		return this.phaseCourante instanceof PhaseMorte;
 	}
 
 	public boolean estExcitee() {
@@ -491,7 +490,6 @@ public abstract class Particule  {
 		this.etatCourant = etatNormal;
 		this.resetVitesse();
 
-		System.out.println(" 11 ");
 	}
 
 
