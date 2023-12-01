@@ -7,7 +7,7 @@ import models.particules.*;
 import observers.Observable;
 import observers.Observateur;
 import simulation.Simulateur;
-import visualisation.VueApplication;
+import view.VueApplication;
 
 public class Controleur implements Observateur {
 

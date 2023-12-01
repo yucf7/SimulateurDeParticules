@@ -1,4 +1,4 @@
-package visualisation;
+package view;
 
 import java.awt.BasicStroke;
 import java.awt.Dimension;

@@ -1,18 +1,13 @@
-package visualisation;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.swing.*;
 
 import controleur.Controleur;
-import models.particules.ChampDeParticules;
-import models.particules.Particule;
-import models.particules.ParticuleA;
-import models.particules.ParticuleB;
 import observers.Observable;
 import observers.Observateur;
 
